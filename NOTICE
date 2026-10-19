@@ -1,0 +1,11 @@
+Prism - Engineering Portfolio Intelligence
+
+This product includes software developed by Graphify Labs.
+
+  src/prism/ids.py contains the node-ID normalization recipe adapted from
+  graphify (https://github.com/Graphify-Labs/graphify), licensed under the
+  Apache License, Version 2.0. The original carries the rationale for the
+  casefold/NFKC fixpoint loop; see that file's module docstring.
+
+  A copy of the Apache License, Version 2.0 is available at
+  https://www.apache.org/licenses/LICENSE-2.0

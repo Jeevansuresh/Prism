@@ -1,0 +1,11 @@
+# Determinism is a hard requirement here: two builds of an unchanged
+# repository must produce byte-identical graph.json, and the fixture
+# repository must produce identical commit SHAs on every machine. Line-ending
+# translation on checkout would undermine both, so normalise to LF everywhere
+# and let nothing depend on the platform git happens to be running on.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.gif binary
+*.pdf binary

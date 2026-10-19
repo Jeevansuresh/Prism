@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prism-portfolio"
+version = "0.1.0"
+description = "Engineering Portfolio Intelligence - build an evidence-backed graph of what a person has built across their repositories"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "networkx>=3.4",
+    "jsonschema>=4",
+    "tree-sitter>=0.25,<0.26",
+    "tree-sitter-python>=0.23,<0.26",
+    "tomli>=2.0.1; python_version < '3.11'",
+]
+
+[project.optional-dependencies]
+# Each extra language is a self-contained grammar; the parser degrades
+# gracefully (file parsed as "unknown", no Symbol nodes) when one is absent.
+javascript = ["tree-sitter-javascript>=0.23,<0.26"]
+typescript = ["tree-sitter-typescript>=0.23,<0.25"]
+go = ["tree-sitter-go>=0.23,<0.26"]
+java = ["tree-sitter-java>=0.23,<0.25"]
+all = [
+    "tree-sitter-javascript>=0.23,<0.26",
+    "tree-sitter-typescript>=0.23,<0.25",
+    "tree-sitter-go>=0.23,<0.26",
+    "tree-sitter-java>=0.23,<0.25",
+]
+mcp = ["mcp>=2,<3"]
+dev = ["pytest>=8", "pytest-cov>=5"]
+
+[project.scripts]
+prism = "prism.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["tests"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]

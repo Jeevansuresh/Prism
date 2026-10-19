@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+prism-out/
+portfolio-out/
+context/
+context-full/
+# Generated portfolio output about a specific person -- stays local.
+resume-kit/
+.scratch/
+graphy/
